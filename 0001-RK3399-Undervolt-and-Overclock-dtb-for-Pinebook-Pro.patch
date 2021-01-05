@@ -1,0 +1,123 @@
+From 912c6dcaec7d6daee3c8958793df0f1e3e008e77 Mon Sep 17 00:00:00 2001
+From: "Winston R. Milling" <Winston@Milli.ng>
+Date: Tue, 5 Jan 2021 09:37:05 -0600
+Subject: [PATCH 1/1] RK3399: Undervolt and Overclock dtb for Pinebook Pro
+
+---
+ arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi  | 20 ++++++-------
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts | 29 +++++++++++++++++++
+ 2 files changed, 39 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi
+index d6f1095abb04..9b3b41c59d9e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi
+@@ -23,15 +23,15 @@ opp02 {
+ 		};
+ 		opp03 {
+ 			opp-hz = /bits/ 64 <1008000000>;
+-			opp-microvolt = <925000>;
++			opp-microvolt = <900000>;
+ 		};
+ 		opp04 {
+ 			opp-hz = /bits/ 64 <1200000000>;
+-			opp-microvolt = <1000000>;
++			opp-microvolt = <975000>;
+ 		};
+ 		opp05 {
+ 			opp-hz = /bits/ 64 <1416000000>;
+-			opp-microvolt = <1125000>;
++			opp-microvolt = <1100000>;
+ 		};
+ 	};
+ 
+@@ -54,23 +54,23 @@ opp02 {
+ 		};
+ 		opp03 {
+ 			opp-hz = /bits/ 64 <1008000000>;
+-			opp-microvolt = <875000>;
++			opp-microvolt = <850000>;
+ 		};
+ 		opp04 {
+ 			opp-hz = /bits/ 64 <1200000000>;
+-			opp-microvolt = <950000>;
++			opp-microvolt = <900000>;
+ 		};
+ 		opp05 {
+ 			opp-hz = /bits/ 64 <1416000000>;
+-			opp-microvolt = <1025000>;
++			opp-microvolt = <975000>;
+ 		};
+ 		opp06 {
+ 			opp-hz = /bits/ 64 <1608000000>;
+-			opp-microvolt = <1100000>;
++			opp-microvolt = <1050000>;
+ 		};
+ 		opp07 {
+ 			opp-hz = /bits/ 64 <1800000000>;
+-			opp-microvolt = <1200000>;
++			opp-microvolt = <1150000>;
+ 		};
+ 	};
+ 
+@@ -91,7 +91,7 @@ opp02 {
+ 		};
+ 		opp03 {
+ 			opp-hz = /bits/ 64 <500000000>;
+-			opp-microvolt = <875000>;
++			opp-microvolt = <850000>;
+ 		};
+ 		opp04 {
+ 			opp-hz = /bits/ 64 <600000000>;
+@@ -99,7 +99,7 @@ opp04 {
+ 		};
+ 		opp05 {
+ 			opp-hz = /bits/ 64 <800000000>;
+-			opp-microvolt = <1100000>;
++			opp-microvolt = <1075000>;
+ 		};
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+index 06d48338c836..151f224ea216 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+@@ -379,6 +379,35 @@ mains_charger: dc-charger {
+ 	};
+ };
+ 
++&cluster0_opp {
++  opp06 {
++    opp-hz = /bits/ 64 <1512000000>;
++    opp-microvolt = <1150000>;
++  };
++  opp07 {
++    opp-hz = /bits/ 64 <1608000000>;
++    opp-microvolt = <1200000>;
++  };
++};
++
++&cluster1_opp {
++  opp08 {
++    opp-hz = /bits/ 64 <2016000000>;
++    opp-microvolt = <1250000>;
++  };
++  opp09 {
++    opp-hz = /bits/ 64 <2088000000>;
++    opp-microvolt = <1250000>;
++  };
++};
++
++&gpu_opp_table {
++  opp06 {
++    opp-hz = /bits/ 64 <950000000>;
++    opp-microvolt = <1200000>;
++  };
++};
++
+ &cdn_dp {
+ 	status = "okay";
+ };
+-- 
+2.30.0
+

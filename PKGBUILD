@@ -66,7 +66,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         'config'
         'linux.preset'
         '60-linux.hook'
-        '90-linux.hook')
+        '90-linux.hook'
+        '0001-RK3399-Undervolt-and-Overclock-dtb-for-Pinebook-Pro.patch')
 md5sums=('d2985a3f16ef1ea3405c04c406e29dcc'
          '9e6b7f44db105fef525d715213dce7cf'
          '9986e28b5c2c3c62a5c3bb53abd94640'
@@ -118,7 +119,8 @@ md5sums=('d2985a3f16ef1ea3405c04c406e29dcc'
          '67d1abd9b92fde9c16d94148ab8ac166'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
-         '3dc88030a8f2f5a5f97266d99b149f77')
+         '3dc88030a8f2f5a5f97266d99b149f77'
+         'e7302615d763bb94cd5a36a41200b308')
 
 prepare() {
   cd ${_srcname}
@@ -183,6 +185,9 @@ prepare() {
   patch -Np1 -i "${srcdir}/0010-bootsplash.patch"
   patch -Np1 -i "${srcdir}/0011-bootsplash.patch"
   patch -Np1 -i "${srcdir}/0012-bootsplash.patch"
+  
+  # Overclock / Undervolt Patch
+  patch -Np1 -i "${srcdir}/0001-RK3399-Undervolt-and-Overclock-dtb-for-Pinebook-Pro.patch"
   
   cat "${srcdir}/config" > ./.config
 
