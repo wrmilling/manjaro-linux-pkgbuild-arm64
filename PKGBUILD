@@ -66,7 +66,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v6.x/${_srcname}.tar.xz"
         'config'
         'linux.preset'
         '60-linux.hook'
-        '90-linux.hook')
+        '90-linux.hook'
+        '0001-RK3399-Undervolt-and-Overclock-dtb-for-Pinebook-Pro.patch')
 md5sums=('4e01a82c673ea0fb85f751672f99dc96'
          '9aa0591c2d601a104d664a802a44728c'
          'e6fe272dc95a1c0a8f871924699fea16'
@@ -117,7 +118,8 @@ md5sums=('4e01a82c673ea0fb85f751672f99dc96'
          '4be7477d34765b9fff0c756456bbd5c2'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
-         '3dc88030a8f2f5a5f97266d99b149f77')
+         '3dc88030a8f2f5a5f97266d99b149f77'
+         '6045f894d9bfba5c32fcc0a7df8612c4')
 
 prepare() {
   apply_patches() {
@@ -142,6 +144,9 @@ prepare() {
   # Assorted rk356x patches
   apply_patches 3
 
+  # Overclock / Undervolt Patch
+  patch -Np1 -i "${srcdir}/0001-RK3399-Undervolt-and-Overclock-dtb-for-Pinebook-Pro.patch"
+  
   # Apply our kernel configuration
   cat "${srcdir}/config" > .config
 
