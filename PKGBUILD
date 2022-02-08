@@ -46,7 +46,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '0005-staging-add-rtl8723cs-driver.patch'                                  # Not upstreamable
         '0006-pinetab-accelerometer.patch'
         '0007-enable-jack-detection-pinetab.patch'
-        '0008-Bluetooth-Read-codec-capabilities-only-if-supported.patch'           # From https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=107fe0482b549a0e
+        '0008-Bluetooth-Read-codec-capabilities-only-if-supported.patch'           # From https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=107fe0482b549a0e (applied in linux-rc 5.17-rc1)
         'config'
         'linux.preset'
         '60-linux.hook'
