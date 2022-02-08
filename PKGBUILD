@@ -7,7 +7,7 @@ _srcname=linux-5.16
 _kernelname=${pkgbase#linux}
 _desc="AArch64 multi-platform"
 pkgver=5.16.8
-pkgrel=1
+pkgrel=2
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -46,6 +46,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '0005-staging-add-rtl8723cs-driver.patch'                                  # Not upstreamable
         '0006-pinetab-accelerometer.patch'
         '0007-enable-jack-detection-pinetab.patch'
+        '0008-Bluetooth-Read-codec-capabilities-only-if-supported.patch'           # From https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=107fe0482b549a0e
         'config'
         'linux.preset'
         '60-linux.hook'
@@ -83,6 +84,7 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          '959c2cb33566b27f880c178039d6c12f'
          'd0fd6bd627223d4c9fc001ffff9df401'
          'f79300740a7350d2d24ab5e120831b52'
+         'faecd80e9d0727d360aa7bbe28b53489'
          '9d095827f8a73432ca4ed8ae50e292c5'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
@@ -91,12 +93,12 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
 prepare() {
   cd ${_srcname}
 
-  # add upstream patch
+  # apply the minor version patch
   patch -Np1 -i "${srcdir}/patch-${pkgver}"
 
   # ALARM patches
   
-  # Manjaro ARM Patches
+  # Manjaro ARM patches
   patch -Np1 -i "${srcdir}/0001-arm64-dts-allwinner-add-hdmi-sound-to-pine-devices.patch"            # Pine64
   patch -Np1 -i "${srcdir}/0002-arm64-dts-allwinner-add-ohci-ehci-to-h5-nanopi.patch"                # Nanopi Neo Plus 2
   patch -Np1 -i "${srcdir}/0003-drm-bridge-analogix_dp-Add-enable_psr-param.patch"                   # Pinebook Pro
@@ -130,7 +132,8 @@ prepare() {
   patch -Np1 -i "${srcdir}/0005-staging-add-rtl8723cs-driver.patch"                                  # Wifi
   patch -Np1 -i "${srcdir}/0006-pinetab-accelerometer.patch"                                         # Accelerometer
   patch -Np1 -i "${srcdir}/0007-enable-jack-detection-pinetab.patch"                                 # Audio
-  
+  patch -Np1 -i "${srcdir}/0008-Bluetooth-Read-codec-capabilities-only-if-supported.patch"           # Bluetooth
+
   cat "${srcdir}/config" > ./.config
 
   # add pkgrel to extraversion
