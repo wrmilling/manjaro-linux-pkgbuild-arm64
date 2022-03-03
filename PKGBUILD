@@ -8,7 +8,7 @@ _srcname=linux-5.16
 _kernelname=${pkgbase#linux}
 _desc="AArch64 multi-platform"
 pkgver=5.16.12
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -35,7 +35,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1017-add-dts-rk3568-station-p2.patch'
         '1018-add-dts-rk3568-radxa-rock3a.patch'
         '1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch'                 # Temporary hotfix, not for upstreaming
-        '1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-SM1.patch'       # From list: https://patchwork.kernel.org/project/linux-amlogic/cover/20220210100638.19130-1-christianshewitt@gmail.com/
+        '1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch'    # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-2-christianshewitt@gmail.com/
+        '1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch'     # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-3-christianshewitt@gmail.com/
         '2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch'         # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-2-anarsoul@gmail.com/
         '2002-Bluetooth-btrtl-add-support-for-the-RTL8723CS.patch'                 # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-3-anarsoul@gmail.com/
         '2003-arm64-allwinner-a64-enable-Bluetooth-On-Pinebook.patch'              # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-4-anarsoul@gmail.com/
@@ -86,7 +87,8 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          '0ef7f4e1e2e87797be664541ad33e464'
          '516a0c0f0dc663419ed275b94edbab55'
          'a0f649f78c857a01e1680b89b58b05eb'
-         '0d295f472d6ed6236ce727ef627284e1'
+         '5f88754771166cd2d95d7bc3911cacca'
+         'ee8eb5a23404c879fcfd09e5b7c124b8'
          '372260658bc5fe55ee9b5690d8f67cb9'
          'a100d32aa6c345290061d2a773bf1232'
          '9510821113c122f91f47b9d0f7ca7264'
@@ -145,7 +147,8 @@ prepare() {
   #patch -Np1 -i "${srcdir}/1017-add-dts-rk3568-station-p2.patch"                                    # Firefly Station P2
   #patch -Np1 -i "${srcdir}/1018-add-dts-rk3568-radxa-rock3a.patch"                                  # Radxa Rock3A
   patch -Np1 -i "${srcdir}/1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch"                 # Rock Pi 4
-  patch -Np1 -i "${srcdir}/1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-SM1.patch"       #AMLogic
+  patch -Np1 -i "${srcdir}/1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch"    # AMLogic [1/2]
+  patch -Np1 -i "${srcdir}/1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch"     # AMLogic [2/2]
 
   # Assorted Pinebook, PinePhone and PineTab patches
   patch -Np1 -i "${srcdir}/2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch"         # Bluetooth
