@@ -8,7 +8,7 @@ _srcname=linux-5.16
 _kernelname=${pkgbase#linux}
 _desc="AArch64 multi-platform"
 pkgver=5.16.12
-pkgrel=3
+pkgrel=4
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -28,7 +28,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1010-arm64-dts-meson-add-initial-Beelink-GT1-Ultimate-dev.patch'
         '1011-add-ugoos-device.patch'
         '1012-drm-panfrost-scheduler-improvements.patch'                           # Will be submitted upstream by the author
-        '1013-arm64-dts-rockchip-Add-pcie-bus-scan-delay-to-rockpr.patch'
+        '1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch'
         '1014-drm-rockchip-support-gamma-control-on-RK3399.patch'                  # From list: https://patchwork.kernel.org/project/linux-arm-kernel/cover/20211019215843.42718-1-sigmaris@gmail.com/
         '1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch'          # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20211120122321.20253-1-kmcopper@danwin1210.me/
         '1016-arm-dts-rockchip-firefly-station-m2.patch'
@@ -37,6 +37,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch'                 # Temporary hotfix, not for upstreaming
         '1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch'    # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-2-christianshewitt@gmail.com/
         '1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch'     # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-3-christianshewitt@gmail.com/
+        '1022-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch'
         '2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch'         # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-2-anarsoul@gmail.com/
         '2002-Bluetooth-btrtl-add-support-for-the-RTL8723CS.patch'                 # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-3-anarsoul@gmail.com/
         '2003-arm64-allwinner-a64-enable-Bluetooth-On-Pinebook.patch'              # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-4-anarsoul@gmail.com/
@@ -50,7 +51,6 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3172-arm64-dts-rk3399-pinebook-pro-Fix-USB-PD-charging.patch'             # Third set of patches: START
         '3174-arm64-dts-rk3399-pinebook-pro-Improve-Type-C-support.patch'          # All patches in the third set are from https://xff.cz/kernels/5.16/patches/
         '3176-arm64-dts-rk3399-pinebook-pro-Remove-redundant-pinct.patch'          # See the prepare() function below for more details
-        '3321-usb-dwc3-core-do-not-use-3.0-clock-when-operating-in.patch'
         '3376-drm-rockchip-cdn-dp-Disable-CDN-DP-on-disconnect.patch'
         '3392-usb-typec-fusb302-Set-the-current-before-enabling-pu.patch'
         '3396-usb-typec-fusb302-Update-VBUS-state-even-if-VBUS-int.patch'
@@ -80,7 +80,7 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          '8f4816a1ed98f80eebad49b6446427a9'
          '1b92d7617e60d3c525a4b18ab4351185'
          '140b727650029bf2d99f2d176f0876d8'
-         '15756f568490dcc1454b4fa4a50a9bc2'
+         '28982d87c45ed8f5aab966d82f8455d8'
          '19e2279811700cd8aa4ab326603d2f61'
          '72030cbfe655fc94b28ea289ee3a53a8'
          '7b23ad49405f14618cfd92f59c25b911'
@@ -89,6 +89,7 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          'a0f649f78c857a01e1680b89b58b05eb'
          '5f88754771166cd2d95d7bc3911cacca'
          'ee8eb5a23404c879fcfd09e5b7c124b8'
+         'a0cf3209d3f856522ef14c4618837ae7'
          '372260658bc5fe55ee9b5690d8f67cb9'
          'a100d32aa6c345290061d2a773bf1232'
          '9510821113c122f91f47b9d0f7ca7264'
@@ -102,7 +103,6 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          'c9a0b350984c9bf777c76958e1199521'
          'e62b2fd8f3ecf6e5ef90b4bc6b91f2c7'
          '91bfa4c046b12158d506391fbb1ce78b'
-         'a66494eddac24cf3f7d182d044d3ffaa'
          '4c997da4f50ce6033a8f560b5f660e49'
          '5f68f0692f74d3303f30d62956f8eb22'
          '3a5e257ce5a8b3a36c4bd403cb7fcaf9'
@@ -140,7 +140,7 @@ prepare() {
   patch -Np1 -i "${srcdir}/1010-arm64-dts-meson-add-initial-Beelink-GT1-Ultimate-dev.patch"          # Beelink
   patch -Np1 -i "${srcdir}/1011-add-ugoos-device.patch"                                              # Ugoos
   patch -Np1 -i "${srcdir}/1012-drm-panfrost-scheduler-improvements.patch"                           # Panfrost
-  patch -Np1 -i "${srcdir}/1013-arm64-dts-rockchip-Add-pcie-bus-scan-delay-to-rockpr.patch"          # RockPro64
+  patch -Np1 -i "${srcdir}/1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch"          # RockPro64
   patch -Np1 -i "${srcdir}/1014-drm-rockchip-support-gamma-control-on-RK3399.patch"                  # RK3399
   patch -Np1 -i "${srcdir}/1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch"          # Rockchip
   #patch -Np1 -i "${srcdir}/1016-arm-dts-rockchip-firefly-station-m2.patch"                          # Firefly Station M2
@@ -149,6 +149,7 @@ prepare() {
   patch -Np1 -i "${srcdir}/1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch"                 # Rock Pi 4
   patch -Np1 -i "${srcdir}/1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch"    # AMLogic [1/2]
   patch -Np1 -i "${srcdir}/1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch"     # AMLogic [2/2]
+  patch -Np1 -i "${srcdir}/1022-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch"          # Rock Pi 4
 
   # Assorted Pinebook, PinePhone and PineTab patches
   patch -Np1 -i "${srcdir}/2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch"         # Bluetooth
@@ -167,7 +168,6 @@ prepare() {
   patch -Np1 -i "${srcdir}/3172-arm64-dts-rk3399-pinebook-pro-Fix-USB-PD-charging.patch"
   patch -Np1 -i "${srcdir}/3174-arm64-dts-rk3399-pinebook-pro-Improve-Type-C-support.patch"
   patch -Np1 -i "${srcdir}/3176-arm64-dts-rk3399-pinebook-pro-Remove-redundant-pinct.patch"
-  patch -Np1 -i "${srcdir}/3321-usb-dwc3-core-do-not-use-3.0-clock-when-operating-in.patch"
   patch -Np1 -i "${srcdir}/3376-drm-rockchip-cdn-dp-Disable-CDN-DP-on-disconnect.patch"
   patch -Np1 -i "${srcdir}/3392-usb-typec-fusb302-Set-the-current-before-enabling-pu.patch"
   patch -Np1 -i "${srcdir}/3396-usb-typec-fusb302-Update-VBUS-state-even-if-VBUS-int.patch"
