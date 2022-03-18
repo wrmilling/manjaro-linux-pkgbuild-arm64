@@ -1,0 +1,136 @@
+From 690e5ac2242d1983f4105a513d0082b4ee148832 Mon Sep 17 00:00:00 2001
+From: Dragan Simic <dragan.simic@gmail.com>
+Date: Fri, 18 Mar 2022 07:37:27 +0100
+Subject: [PATCH] dts: rockchip: Adapt and adopt Type-C support from Pinebook
+ Pro
+
+Based on the arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+file and the following patches from megous, which can be found on
+https://xff.cz/kernels/5.16/patches/:
+
+- 0174-arm64-dts-rk3399-pinebook-pro-Improve-Type-C-support.patch
+- 0459-arm64-dts-rk3399-pinebook-pro-Don-t-allow-usb2-phy-d.patch
+---
+ .../boot/dts/rockchip/rk3399-rockpro64.dtsi   | 70 ++++++++++++++++++-
+ 1 file changed, 69 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
+index 6bff8db7d33e..17fd644a1eda 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
+@@ -219,6 +219,14 @@ vdd_log: vdd-log {
+ 		regulator-max-microvolt = <1700000>;
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
++
++	typec_extcon_bridge: typec-extcon {
++		compatible = "linux,typec-extcon-bridge";
++		usb-role-switch;
++		orientation-switch;
++		mode-switch;
++		svid = /bits/ 16 <0xff01>;
++	};
+ };
+ 
+ &cpu_l0 {
+@@ -245,6 +253,12 @@ &cpu_b1 {
+ 	cpu-supply = <&vdd_cpu_b>;
+ };
+ 
++&cdn_dp {
++	status = "okay";
++	extcon = <&typec_extcon_bridge>;
++	phys = <&tcphy0_dp>;
++};
++
+ &emmc_phy {
+ 	status = "okay";
+ };
+@@ -534,7 +548,57 @@ fusb0: typec-portc@22 {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&fusb0_int>;
+ 		vbus-supply = <&vcc5v0_typec>;
++		usb-role-switch = <&typec_extcon_bridge>;
++		extcon = <&typec_extcon_bridge>;
+ 		status = "okay";
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "host";
++			label = "USB-C";
++			power-role = "source";
++			source-pdos =
++				<PDO_FIXED(5000, 1400, PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
++			try-power-role = "source";
++			mode-switch = <&typec_extcon_bridge>;
++			orientation-switch = <&typec_extcon_bridge>;
++
++			altmodes {
++				dp {
++					svid = <0xff01>;
++					vdo = <0x0c0046>;
++				};
++			};
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc_hs: endpoint {
++						remote-endpoint = <&u2phy0_typec_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc_ss: endpoint {
++						remote-endpoint = <&tcphy0_typec_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++
++					usbc_dp: endpoint {
++						remote-endpoint = <&tcphy0_typec_dp>;
++					};
++				};
++			};
++		};
+ 	};
+ };
+ 
+@@ -755,6 +819,7 @@ flash@0 {
+ };
+ 
+ &tcphy0 {
++	extcon = <&typec_extcon_bridge>;
+ 	status = "okay";
+ };
+ 
+@@ -771,6 +836,8 @@ &tsadc {
+ };
+ 
+ &u2phy0 {
++	extcon = <&typec_extcon_bridge>;
++	extcon,ignore-usb;
+ 	status = "okay";
+ 
+ 	u2phy0_otg: otg-port {
+@@ -841,7 +908,8 @@ &usbdrd3_0 {
+ 
+ &usbdrd_dwc3_0 {
+ 	status = "okay";
+-	dr_mode = "host";
++	dr_mode = "otg";
++	extcon = <&typec_extcon_bridge>;
+ };
+ 
+ &usbdrd3_1 {
+-- 
+2.33.1
+
