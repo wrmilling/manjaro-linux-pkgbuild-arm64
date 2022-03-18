@@ -101,7 +101,7 @@ md5sums=('e6680ce7c989a3efe58b51e3f3f0bf93'
          'faecd80e9d0727d360aa7bbe28b53489'
          '6b42e61f8ef7cc9ebab731a71fd45e1a'
          'd2654df7fc87e5c874505a2d98cbce1c'
-         '4526b864558d806407125e51b8464c65'
+         '3d1c9ff232929189de8df70614304e13'
          'c9a0b350984c9bf777c76958e1199521'
          'e62b2fd8f3ecf6e5ef90b4bc6b91f2c7'
          '91bfa4c046b12158d506391fbb1ce78b'
@@ -263,7 +263,6 @@ _package() {
 
   # now we call depmod...
   depmod -b "${pkgdir}/usr" -F System.map "${_kernver}"
-
 
   # sed expression for following substitutions
   local _subst="
