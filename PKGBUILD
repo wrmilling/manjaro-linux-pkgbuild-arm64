@@ -145,9 +145,9 @@ prepare() {
   patch -Np1 -i "${srcdir}/1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch"          # RockPro64
   patch -Np1 -i "${srcdir}/1014-drm-rockchip-support-gamma-control-on-RK3399.patch"                  # RK3399 VOP
   patch -Np1 -i "${srcdir}/1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch"          # Rockchip RGA
-  patch -Np1 -i "${srcdir}/1016-arm64-dts-rockchip-add-firefly-station-m2.patch"                     # Firefly Station M2
-  patch -Np1 -i "${srcdir}/1017-arm64-dts-rockchip-add-rk3568-station-p2.patch"                      # Firefly Station P2
-  patch -Np1 -i "${srcdir}/1018-arm64-dts-rockchip-add-rk3568-radxa-rock3a.patch"                    # Radxa Rock 3A
+  #patch -Np1 -i "${srcdir}/1016-arm64-dts-rockchip-add-firefly-station-m2.patch"                     # Firefly Station M2
+  #patch -Np1 -i "${srcdir}/1017-arm64-dts-rockchip-add-rk3568-station-p2.patch"                      # Firefly Station P2
+  #patch -Np1 -i "${srcdir}/1018-arm64-dts-rockchip-add-rk3568-radxa-rock3a.patch"                    # Radxa Rock 3A
   patch -Np1 -i "${srcdir}/1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch"                 # Radxa Rock Pi 4
   patch -Np1 -i "${srcdir}/1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch"    # AMLogic [1/2]
   patch -Np1 -i "${srcdir}/1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch"     # AMLogic [2/2]
