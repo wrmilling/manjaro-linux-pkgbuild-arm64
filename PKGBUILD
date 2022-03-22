@@ -34,13 +34,10 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch'
         '1014-drm-rockchip-support-gamma-control-on-RK3399.patch'                  # From list: https://patchwork.kernel.org/project/linux-arm-kernel/cover/20211019215843.42718-1-sigmaris@gmail.com/
         '1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch'          # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20211120122321.20253-1-kmcopper@danwin1210.me/
-        '1016-arm64-dts-rockchip-add-firefly-station-m2.patch'
-        '1017-arm64-dts-rockchip-add-rk3568-station-p2.patch'
-        '1018-arm64-dts-rockchip-add-rk3568-radxa-rock3a.patch'
-        '1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch'                 # Temporary hotfix, not for upstreaming
-        '1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch'    # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-2-christianshewitt@gmail.com/
-        '1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch'     # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-3-christianshewitt@gmail.com/
-        '1022-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch'
+        '1016-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch'                 # Temporary hotfix, not for upstreaming
+        '1017-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch'    # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-2-christianshewitt@gmail.com/
+        '1018-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch'     # From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-3-christianshewitt@gmail.com/
+        '1019-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch'
         '2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch'         # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-2-anarsoul@gmail.com/
         '2002-Bluetooth-btrtl-add-support-for-the-RTL8723CS.patch'                 # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-3-anarsoul@gmail.com/
         '2003-arm64-allwinner-a64-enable-Bluetooth-On-Pinebook.patch'              # From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-4-anarsoul@gmail.com/
@@ -84,9 +81,6 @@ md5sums=('07321a70a48d062cebd0358132f11771'
          '28982d87c45ed8f5aab966d82f8455d8'
          '19e2279811700cd8aa4ab326603d2f61'
          '72030cbfe655fc94b28ea289ee3a53a8'
-         '7efe906ace0bcc5571d4193fb38ac635'
-         '997dd365a0151ceb5bb591e7ecca9031'
-         'c18d244110d0ff54b5e22c8b8a9a6502'
          'a0f649f78c857a01e1680b89b58b05eb'
          '5f88754771166cd2d95d7bc3911cacca'
          'ee8eb5a23404c879fcfd09e5b7c124b8'
@@ -145,13 +139,10 @@ prepare() {
   patch -Np1 -i "${srcdir}/1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch"          # RockPro64
   patch -Np1 -i "${srcdir}/1014-drm-rockchip-support-gamma-control-on-RK3399.patch"                  # RK3399 VOP
   patch -Np1 -i "${srcdir}/1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch"          # Rockchip RGA
-  #patch -Np1 -i "${srcdir}/1016-arm64-dts-rockchip-add-firefly-station-m2.patch"                     # Firefly Station M2
-  #patch -Np1 -i "${srcdir}/1017-arm64-dts-rockchip-add-rk3568-station-p2.patch"                      # Firefly Station P2
-  #patch -Np1 -i "${srcdir}/1018-arm64-dts-rockchip-add-rk3568-radxa-rock3a.patch"                    # Radxa Rock 3A
-  patch -Np1 -i "${srcdir}/1019-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch"                 # Radxa Rock Pi 4
-  patch -Np1 -i "${srcdir}/1020-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch"    # AMLogic [1/2]
-  patch -Np1 -i "${srcdir}/1021-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch"     # AMLogic [2/2]
-  patch -Np1 -i "${srcdir}/1022-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch"          # Radxa Rock Pi 4
+  patch -Np1 -i "${srcdir}/1016-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch"                 # Radxa Rock Pi 4
+  patch -Np1 -i "${srcdir}/1017-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch"    # AMLogic [1/2]
+  patch -Np1 -i "${srcdir}/1018-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch"     # AMLogic [2/2]
+  patch -Np1 -i "${srcdir}/1019-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-Rock-P.patch"          # Radxa Rock Pi 4
 
   # Assorted Pinebook, PinePhone and PineTab patches
   patch -Np1 -i "${srcdir}/2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch"         # Bluetooth
