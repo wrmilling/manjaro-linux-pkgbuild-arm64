@@ -31,7 +31,6 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1012-drm-panfrost-scheduler-improvements.patch'                           # Panfrost;  Will be submitted upstream by the author
         '1013-arm64-dts-rockchip-Add-PCIe-bus-scan-delay-to-RockPr.patch'          # RockPro64
         '1014-drm-rockchip-support-gamma-control-on-RK3399.patch'                  # RK3399 VOP;  From list: https://patchwork.kernel.org/project/linux-arm-kernel/cover/20211019215843.42718-1-sigmaris@gmail.com/
-        '1015-media-rockchip-rga-do-proper-error-checking-in-probe.patch'          # Rockchip RGA;  From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20211120122321.20253-1-kmcopper@danwin1210.me/
         '1016-arm64-dts-rockchip-switch-to-hs200-on-rockpi4.patch'                 # Radxa Rock Pi 4;  Temporary hotfix, not for upstreaming
         '1017-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-G12B-boards.patch'    # AMLogic [1/2];  From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-2-christianshewitt@gmail.com/
         '1018-arm64-dts-meson-remove-CPU-opps-below-1GHz-for-SM1-boards.patch'     # AMLogic [2/2];  From list: https://patchwork.kernel.org/project/linux-amlogic/patch/20220210100638.19130-3-christianshewitt@gmail.com/
@@ -78,7 +77,6 @@ md5sums=('0a3cf5d567a1774359672b89b5847335'
          '140b727650029bf2d99f2d176f0876d8'
          '28982d87c45ed8f5aab966d82f8455d8'
          '19e2279811700cd8aa4ab326603d2f61'
-         '72030cbfe655fc94b28ea289ee3a53a8'
          'a0f649f78c857a01e1680b89b58b05eb'
          '5f88754771166cd2d95d7bc3911cacca'
          'ee8eb5a23404c879fcfd09e5b7c124b8'
