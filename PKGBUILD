@@ -5,8 +5,8 @@
 
 pkgbase=linux
 pkgver=5.17.4
-pkgrel=1
-_newversion=false
+pkgrel=2
+_newversion=true
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
 _kernelname="${pkgbase#linux}"
@@ -104,7 +104,7 @@ md5sums=('0a3cf5d567a1774359672b89b5847335'
          '482a6974207197cff14e77a61f66a810'
          'a76a46e31f4229e7c4349f90ac36601b'
          '04eec4b27d9c26f6d53317100fbab7fb'
-         '5ea6052a784aaa479077442dea1e088b'
+         '47e27ab65ec56e46ee8de1f446070a01'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
