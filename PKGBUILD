@@ -6,7 +6,7 @@
 pkgbase=linux
 pkgver=5.17.4
 pkgrel=2
-_newversion=true
+_newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
 _kernelname="${pkgbase#linux}"
