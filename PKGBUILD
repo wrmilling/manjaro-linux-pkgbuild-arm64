@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.18.0
-pkgrel=1
+pkgrel=2
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -80,7 +80,7 @@ md5sums=('58e80452e2d8e1993cd7ec95e697ab5a'
          'f79300740a7350d2d24ab5e120831b52'
          'd2654df7fc87e5c874505a2d98cbce1c'
          '59c20ef6082f4b4c6b54c4f532931ff4'
-         'af51f8fa14942259b194aaf55a257dd5'
+         'a6bb24516d2dac786f92a01f66098b5c'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
