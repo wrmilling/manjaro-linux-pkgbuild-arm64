@@ -39,7 +39,6 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1020-arm64-dts-allwinner-add-OrangePi-3-LTS.patch'                        # OrangePi 3 LTS
         '1021-arm64-dts-meson-radxa-zero-add-support-for-the-usb-t.patch'          # Radxa Zero
 	"1022-arm64-dts-rockchip-opi4-lts.patch::https://github.com/spikerguy/linux/commit/e744e4fecea518c0815054d6991857dbe9efaaa6.patch"	#Add OPI4LTS DTS
-	'1023-Add-YT8531C-phy-support.patch'													#Add YT8531C	
         '2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch'         # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-2-anarsoul@gmail.com/
         '2002-Bluetooth-btrtl-add-support-for-the-RTL8723CS.patch'                 # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-3-anarsoul@gmail.com/
         '2003-arm64-allwinner-a64-enable-Bluetooth-On-Pinebook.patch'              # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-4-anarsoul@gmail.com/
@@ -76,7 +75,6 @@ md5sums=('5ee0353e80e17cf1dd33474bd05e353e'
          'e285b47405d8eab611ba17bcbf2f9cbf'
          '9799998aa9b72fae2eb55e92d840dad5'
          'ec944abd5547a9ea8bc97282f588ef39'
-         '6d835ec8b00a50474618b73b0feea04f'
          '372260658bc5fe55ee9b5690d8f67cb9'
          'a100d32aa6c345290061d2a773bf1232'
          '9510821113c122f91f47b9d0f7ca7264'
