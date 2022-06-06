@@ -4,8 +4,8 @@
 # Contributor: Dragan Simic <dsimic@buserror.io>
 
 pkgbase=linux
-pkgver=5.18.1
-pkgrel=5
+pkgver=5.18.2
+pkgrel=1
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -52,7 +52,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook')
-md5sums=('5ee0353e80e17cf1dd33474bd05e353e'
+md5sums=('b04ef6c41e2a8965201c28e6963beaf8'
          '9aa0591c2d601a104d664a802a44728c'
          'e6fe272dc95a1c0a8f871924699fea16'
          '9f27b2a05eaeb1995fc0fcf6a8b923c4'
@@ -84,7 +84,7 @@ md5sums=('5ee0353e80e17cf1dd33474bd05e353e'
          'f79300740a7350d2d24ab5e120831b52'
          'd2654df7fc87e5c874505a2d98cbce1c'
          '59c20ef6082f4b4c6b54c4f532931ff4'
-         '75c9213e7bdc5b03cb2875f220b25390'
+         '608aa844faf634c3e909f761eeacb333'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
