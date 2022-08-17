@@ -4,8 +4,8 @@
 # Contributor: Dragan Simic <dsimic@buserror.io>
 
 pkgbase=linux
-pkgver=5.19.1
-pkgrel=3
+pkgver=5.19.2
+pkgrel=1
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -73,17 +73,16 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3023-arm64-dts-rockchip-Add-Quartz64-A-battery-node.patch'
         '3024-arm64-dts-rockchip-rk356x-Add-HDMI-audio-nodes.patch'                # (applied in linux-next)
         '3025-arm64-dts-rockchip-Enable-HDMI-audio-on-Quartz64-A.patch'            # (applied in linux-next)
-        '3026-phy-rockchip-inno-usb2-Sync-initial-otg-state.patch'
-        '3027-phy-rockchip-inno-usb2-Only-sync-state-when-we-own-e.patch'
+        #'3026-phy-rockchip-inno-usb2-Sync-initial-otg-state.patch'
+        #'3027-phy-rockchip-inno-usb2-Only-sync-state-when-we-own-e.patch'
         '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
-        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'
-        '3031-arm64-dts-rockchip-Fix-ethernet-on-Rock-3A.patch'                    # Quartz64 and associated patches that are still being upstreamed: END
+        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END
         'config'
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook')
-md5sums=('9d0eec53c479f141f30ae9845b115889'
+md5sums=('391274e2e49a881403b0ff2e0712bf82'
          '9aa0591c2d601a104d664a802a44728c'
          'e6fe272dc95a1c0a8f871924699fea16'
          '9f27b2a05eaeb1995fc0fcf6a8b923c4'
@@ -140,13 +139,10 @@ md5sums=('9d0eec53c479f141f30ae9845b115889'
          'fa9babdfffadf76454b00fc22593eaba'
          'c8661942df340cf4ed49b366c83bfbcf'
          '9cd5a90efaa7448a737468954c1428fc'
-         '90faa5e361188b5c8793460d5e655897'
-         '7d118495760869a7184372f5c8e9d592'
          'a2271452ecf71f2ee160ad76f8bcadef'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
-         '52e881c279f4bdb50eb41c0ec542e63e'
-         'bfb62dd7fbcf38fc49af984eef0b0c16'
+         '19dc5bf00ae14575b618d20c45c6d684'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
