@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.19.1
-pkgrel=2
+pkgrel=3
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -77,7 +77,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3027-phy-rockchip-inno-usb2-Only-sync-state-when-we-own-e.patch'
         '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
-        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END
+        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'
+        '3031-arm64-dts-rockchip-Fix-ethernet-on-Rock-3A.patch'                    # Quartz64 and associated patches that are still being upstreamed: END
         'config'
         'linux.preset'
         '60-linux.hook'
@@ -144,6 +145,7 @@ md5sums=('9d0eec53c479f141f30ae9845b115889'
          'a2271452ecf71f2ee160ad76f8bcadef'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
+         '597099f15f27201514caf7774f98ee2e'
          'bfb62dd7fbcf38fc49af984eef0b0c16'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
