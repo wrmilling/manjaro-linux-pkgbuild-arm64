@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.19.6
-pkgrel=1
+pkgrel=2
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -42,6 +42,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '1023-arm64-dts-meson-radxa-zero-add-support-for-the-usb-t.patch'          # Radxa Zero (by Furkan)
         '1024-arm64-dts-rockchip-add-OrangePi-4-LTS.patch'                         # Orange Pi 4 LTS (by Furkan)
         '1025-Add-YT8531C-phy-support.patch'                                       # Motorcomm PHY (by Furkan)
+        '1026-add-phy-rockchip-Support-PCIe-v3.patch'                              # PCIe3; From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220825193836.54262-4-linux@fw-web.de/
+        '1027-arm64-dts-rockchip-rk3568-Add-PCIe-v3-nodes.patch'                   # PCIe3; From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220825193836.54262-5-linux@fw-web.de/
         '2001-Bluetooth-Add-new-quirk-for-broken-local-ext-features.patch'         # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-2-anarsoul@gmail.com/ (no updates since July 2020)
         '2002-Bluetooth-btrtl-add-support-for-the-RTL8723CS.patch'                 # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-3-anarsoul@gmail.com/ (no updates since July 2020)
         '2003-arm64-allwinner-a64-enable-Bluetooth-On-Pinebook.patch'              # Bluetooth;  From list: https://patchwork.kernel.org/project/bluetooth/patch/20200705195110.405139-4-anarsoul@gmail.com/ (no updates since July 2020)
@@ -103,10 +105,12 @@ md5sums=('1591d7b1a190244f6fbd89da70a9864f'
          'e285b47405d8eab611ba17bcbf2f9cbf'
          'dd14a637b7b3be7bd826ef89085252e4'
          '7627f72a1fb2d932d5eb8738912164e1'
-         '78b581abe0efcba4e9aa084bccb23683'
+         'c6e25e765493cff64c6f65800a1d5c29'
          '9799998aa9b72fae2eb55e92d840dad5'
          '227466ec46ffce1684835c87640c46c2'
          '77200aa6b89276b9035f13c4bb422b98'
+         '8cf60a66691809a648a1c763a62ec5de'
+         '37221482c9228c84cfd7f969d9735740'
          '372260658bc5fe55ee9b5690d8f67cb9'
          'a100d32aa6c345290061d2a773bf1232'
          '9510821113c122f91f47b9d0f7ca7264'
@@ -142,7 +146,7 @@ md5sums=('1591d7b1a190244f6fbd89da70a9864f'
          'a2271452ecf71f2ee160ad76f8bcadef'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
-         '4debb3dadeca414923145732cf5a4153'
+         'ee054962625dde40f8ad5ac66f7710cb'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
