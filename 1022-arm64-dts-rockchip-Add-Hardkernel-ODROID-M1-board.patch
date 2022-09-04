@@ -33,7 +33,7 @@ new file mode 100644
 index 000000000000..d1a5d43127e9
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-@@ -0,0 +1,650 @@
+@@ -0,0 +1,651 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2022 Hardkernel Co., Ltd.
@@ -625,6 +625,7 @@ index 000000000000..d1a5d43127e9
 +
 +&usb_host0_xhci {
 +	extcon = <&usb2phy0>;
++	status = "okay";
 +};
 +
 +&usb_host1_ehci {
