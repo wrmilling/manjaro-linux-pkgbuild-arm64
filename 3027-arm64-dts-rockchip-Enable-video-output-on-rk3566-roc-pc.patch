@@ -42,8 +42,17 @@ index 57759b66d44d..dba648c2f57e 100644
 +
  	leds {
  		compatible = "gpio-leds";
- 
-@@ -149,6 +161,29 @@ &gmac1m0_clkinout
+
+@@ -142,7 +142,7 @@
+ 	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1_RGMII_SPEED>, <&cru SCLK_GMAC1>;
+ 	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>, <&cru SCLK_GMAC1>, <&gmac1_clkin>;
+ 	clock_in_out = "input";
+-	phy-mode = "rgmii-id";
++	phy-mode = "rgmii";
+ 	phy-supply = <&vcc_3v3>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&gmac1m0_miim 
+@@ -149,6 +161,33 @@ &gmac1m0_clkinout
  	status = "okay";
  };
  
@@ -70,8 +79,28 @@ index 57759b66d44d..dba648c2f57e 100644
 +	};
 +};
 +
++&hdmi_sound {
++	status = "okay";
++};
++
  &i2c0 {
  	status = "okay";
+
+@@ -433,10 +437,14 @@
+ &i2c3 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c3m1_xfer>;
++	pinctrl-0 = <&i2c3m0_xfer>;
+	status = "okay";
+ };
+ 
+ &i2c5 {
++	status = "disabled";
++};
++
++&i2s0_8ch {
+ 	status = "okay";
+ };
  
 @@ -577,3 +612,20 @@ &usb_host0_ehci {
  &usb_host0_ohci {
