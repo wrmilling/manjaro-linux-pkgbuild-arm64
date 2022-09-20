@@ -76,7 +76,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3024-arm64-dts-rockchip-rk356x-Add-HDMI-audio-nodes.patch'                # (applied in linux-next)
         '3025-arm64-dts-rockchip-Enable-HDMI-audio-on-Quartz64-A.patch'            # (applied in linux-next)
         '3026-phy-rockchip-inno-usb2-Return-zero-after-otg-sync.patch'             # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220824122543.174730-1-pgwipeout@gmail.com/
-        '3027-arm64-dts-rockchip-Enable-video-output-on-rk3566-roc-pc.patch'       # Station M2; (applied in linux-next)
+        '3027-arm64-dts-rockchip-Enable-video-output-on-rk3566-roc-pc.patch'       # Station M2; (by Furkan)
         '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
         '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END
