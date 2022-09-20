@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.19.10
-pkgrel=1
+pkgrel=2
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -76,6 +76,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3024-arm64-dts-rockchip-rk356x-Add-HDMI-audio-nodes.patch'                # (applied in linux-next)
         '3025-arm64-dts-rockchip-Enable-HDMI-audio-on-Quartz64-A.patch'            # (applied in linux-next)
         '3026-phy-rockchip-inno-usb2-Return-zero-after-otg-sync.patch'             # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220824122543.174730-1-pgwipeout@gmail.com/
+        '3027-arm64-dts-rockchip-Enable-video-output-on-rk3566-roc-pc.patch'       # Station M2; (applied in linux-next)
         '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
         '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END
@@ -143,6 +144,7 @@ md5sums=('27f36de913657dcad0e9b44bd1e0d9d4'
          'c8661942df340cf4ed49b366c83bfbcf'
          '9cd5a90efaa7448a737468954c1428fc'
          '905f6a0443d8af923bdc506b1fe2396e'
+         'f3aa01208250bcb6ddb4f3ae1ac12d49'
          'a2271452ecf71f2ee160ad76f8bcadef'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
