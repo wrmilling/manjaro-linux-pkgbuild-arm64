@@ -25,7 +25,7 @@ index 57759b66d44d..dba648c2f57e 100644
  #include "rk3566.dtsi"
  
  / {
-@@ -27,6 +28,17 @@
+@@ -27,6 +28,39 @@
  		#clock-cells = <0>;
  	};
  
@@ -40,10 +40,32 @@ index 57759b66d44d..dba648c2f57e 100644
 +		};
 +	};
 +
++	i2s1_8ch: i2s@fe410000 {
++		compatible = "rockchip,rk3568-i2s-tdm";
++		reg = <0x0 0xfe410000 0x0 0x1000>;
++		interrupts = <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>;
++		assigned-clocks = <&cru CLK_I2S1_8CH_TX_SRC>, <&cru CLK_I2S1_8CH_RX_SRC>;
++		assigned-clock-rates = <1188000000>, <1188000000>;
++		clocks = <&cru MCLK_I2S1_8CH_TX>, <&cru MCLK_I2S1_8CH_RX>,
++			 <&cru HCLK_I2S1_8CH>;
++		clock-names = "mclk_tx", "mclk_rx", "hclk";
++		dmas = <&dmac1 3>, <&dmac1 2>;
++		dma-names = "rx", "tx";
++		resets = <&cru SRST_M_I2S1_8CH_TX>, <&cru SRST_M_I2S1_8CH_RX>;
++		reset-names = "tx-m", "rx-m";
++		rockchip,grf = <&grf>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&i2s1m0_sclktx &i2s1m0_sclkrx
++			     &i2s1m0_lrcktx &i2s1m0_lrckrx
++			     &i2s1m0_sdi0   &i2s1m0_sdo0>;
++		#sound-dai-cells = <0>;
++		status = "disabled";
++	};
++
  	leds {
  		compatible = "gpio-leds";
  
-@@ -41,6 +53,22 @@
+@@ -41,6 +75,22 @@
  		};
  	};
  
@@ -66,7 +88,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	sdio_pwrseq: sdio-pwrseq {
  		status = "okay";
  		compatible = "mmc-pwrseq-simple";
-@@ -70,6 +98,18 @@
+@@ -70,6 +120,18 @@
  		vin-supply = <&usb_5v>;
  	};
  
@@ -85,7 +107,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	vcc3v3_sys: vcc3v3-sys-regulator {
  		compatible = "regulator-fixed";
  		regulator-name = "vcc3v3_sys";
-@@ -110,6 +150,10 @@
+@@ -110,6 +172,10 @@
  	status = "okay";
  };
  
@@ -96,7 +118,7 @@ index 57759b66d44d..dba648c2f57e 100644
  &cpu0 {
  	cpu-supply = <&vdd_cpu>;
  };
-@@ -130,7 +174,7 @@
+@@ -130,7 +196,7 @@
  	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1_RGMII_SPEED>, <&cru SCLK_GMAC1>;
  	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>, <&cru SCLK_GMAC1>, <&gmac1_clkin>;
  	clock_in_out = "input";
@@ -105,7 +127,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	phy-supply = <&vcc_3v3>;
  	pinctrl-names = "default";
  	pinctrl-0 = <&gmac1m0_miim
-@@ -149,6 +193,33 @@
+@@ -149,6 +215,33 @@
  	status = "okay";
  };
  
@@ -139,7 +161,7 @@ index 57759b66d44d..dba648c2f57e 100644
  &i2c0 {
  	status = "okay";
  
-@@ -175,9 +246,13 @@
+@@ -175,9 +268,13 @@
  		interrupt-parent = <&gpio0>;
  		interrupts = <RK_PA7 IRQ_TYPE_LEVEL_LOW>;
  		clock-output-names = "rk808-clkout1", "rk808-clkout2";
@@ -155,7 +177,7 @@ index 57759b66d44d..dba648c2f57e 100644
  		rockchip,system-power-controller;
  		wakeup-source;
  		#clock-cells = <1>;
-@@ -384,6 +459,10 @@
+@@ -384,6 +481,10 @@
  				regulator-boot-on;
  			};
  		};
@@ -166,7 +188,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	};
  };
  
-@@ -397,11 +476,20 @@
+@@ -397,11 +498,20 @@
  
  &i2c3 {
  	pinctrl-names = "default";
@@ -188,7 +210,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	status = "okay";
  };
  
-@@ -412,6 +500,14 @@
+@@ -412,6 +522,14 @@
  	};
  };
  
@@ -203,7 +225,7 @@ index 57759b66d44d..dba648c2f57e 100644
  &pinctrl {
  	bt {
  		bt_enable_h: bt-enable-h {
-@@ -433,6 +529,16 @@
+@@ -433,6 +551,16 @@
  		};
  	};
  
@@ -220,7 +242,7 @@ index 57759b66d44d..dba648c2f57e 100644
  	pmic {
  		pmic_int: pmic_int {
  			rockchip,pins =
-@@ -577,3 +683,20 @@
+@@ -577,3 +705,20 @@
  &usb_host0_ohci {
  	status = "okay";
  };
