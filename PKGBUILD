@@ -4,8 +4,8 @@
 # Contributor: Dragan Simic <dsimic@buserror.io>
 
 pkgbase=linux
-pkgver=5.19.10
-pkgrel=5
+pkgver=5.19.11
+pkgrel=1
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -61,30 +61,30 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3009-arm64-dts-rockchip-enable-vop2-and-hdmi-tx-on-rock-3.patch'          # (applied in linux-next)
         '3010-irqchip-gic-v3-add-hackaround-for-rk3568-its.patch'
         '3011-fixup-arm64-dts-rockchip-Add-rk3568-PCIe2x1-controll.patch'          # (applied in linux-next)
-        '3012-arm64-dts-rockchip-Enable-video-output-on-Quartz64-B.patch'
+        '3012-arm64-dts-rockchip-Enable-video-output-on-Quartz64-B.patch'          # (applied in linux-next)
         '3013-arm64-dts-rockchip-Add-hdmi-cec-assigned-clocks-to-r.patch'
         '3014-arm64-dts-rockchip-Add-PCIe-support-to-Quartz64-B.patch'
         '3015-arm64-dts-rockchip-Add-Quartz64-B-eeprom.patch'
         '3016-arm64-dts-rockchip-Add-PCIe-support-to-SoQuartz-CM4-.patch'
         '3017-arm64-dts-rockchip-Enable-video-output-on-SoQuartz-C.patch'
-        '3018-dt-bindings-Add-Rockchip-rk817-battery-charger-suppo.patch'
-        '3019-mfd-Add-Rockchip-rk817-battery-charger-support.patch'
+        '3018-dt-bindings-Add-Rockchip-rk817-battery-charger-suppo.patch'          # (applied in linux-next)
+        '3019-mfd-Add-Rockchip-rk817-battery-charger-support.patch'                # (applied in linux-next)
         '3020-power-supply-Add-charger-driver-for-Rockchip-RK817.patch'
         '3021-drm-panel-simple-Add-init-sequence-support.patch'
         '3022-arm64-dts-rockchip-Move-Quartz64-A-to-mdio-setup.patch'
         '3023-arm64-dts-rockchip-Add-Quartz64-A-battery-node.patch'
         '3024-arm64-dts-rockchip-rk356x-Add-HDMI-audio-nodes.patch'                # (applied in linux-next)
         '3025-arm64-dts-rockchip-Enable-HDMI-audio-on-Quartz64-A.patch'            # (applied in linux-next)
-        '3026-phy-rockchip-inno-usb2-Return-zero-after-otg-sync.patch'             # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220824122543.174730-1-pgwipeout@gmail.com/
+        '3026-phy-rockchip-inno-usb2-Return-zero-after-otg-sync.patch'             # From list: https://patchwork.kernel.org/project/linux-rockchip/patch/20220824122543.174730-1-pgwipeout@gmail.com/ (applied in linux-next)
         '3027-arm64-dts-rockchip-Enable-video-output-on-rk3566-roc-pc.patch'       # Station M2; (by Furkan)
-        '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'
+        '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'          # (applied in linux-next)
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
-        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END
+        '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END (applied in linux-next)
         'config'
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook')
-md5sums=('27f36de913657dcad0e9b44bd1e0d9d4'
+md5sums=('5c7afbd61691adfeaea52cb724cbd3c3'
          '9aa0591c2d601a104d664a802a44728c'
          'e6fe272dc95a1c0a8f871924699fea16'
          '9f27b2a05eaeb1995fc0fcf6a8b923c4'
