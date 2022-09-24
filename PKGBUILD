@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.19.11
-pkgrel=1
+pkgrel=2
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -80,6 +80,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
         '3028-arm64-dts-rockchip-Add-HDMI-sound-node-to-Quartz64-B.patch'          # (applied in linux-next)
         '3029-arm64-dts-rockchip-Add-HDMI-sound-node-to-SoQuartz-C.patch'
         '3030-arm64-dts-rockchip-Add-PCIe-2-nodes-to-quartz64-b.patch'             # Quartz64 and associated patches that are still being upstreamed: END (applied in linux-next)
+        '3031-board-rock3a-gmac1.patch'                                            # Rock 3A; From Armbian: https://github.com/armbian/build/blob/master/patch/kernel/archive/rockchip64-5.19/board-rock3a-gmac1.patch
         'config'
         'linux.preset'
         '60-linux.hook'
@@ -148,6 +149,7 @@ md5sums=('5c7afbd61691adfeaea52cb724cbd3c3'
          'a2271452ecf71f2ee160ad76f8bcadef'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
+         'e8ea5b4f0937c3799a846991a9259b4b'
          'ee054962625dde40f8ad5ac66f7710cb'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
