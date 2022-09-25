@@ -5,7 +5,7 @@
 
 pkgbase=linux
 pkgver=5.19.11
-pkgrel=2
+pkgrel=3
 _newversion=false
 _stopbuild=false     # Will also stop if ${_newversion} is true
 _srcname="linux-${pkgver/%.0/}"
@@ -150,7 +150,7 @@ md5sums=('5c7afbd61691adfeaea52cb724cbd3c3'
          '7a39de5aa1c29e81d03096c2f9163456'
          '92d5c7dd3052f5d7a670bd06213d75fb'
          'e8ea5b4f0937c3799a846991a9259b4b'
-         'ee054962625dde40f8ad5ac66f7710cb'
+         'f3688a48e8669227675a73d94fb289d4'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
          '3dc88030a8f2f5a5f97266d99b149f77')
