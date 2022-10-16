@@ -34,8 +34,8 @@ source=("http://www.kernel.org/pub/linux/kernel/v6.x/${_srcname}.tar.xz"
         '1015-arm64-dts-allwinner-h6-Add-hdmi-sound-card.patch'                    # Allwinner H6 HDMI audio (by Furkan)
         '1016-arm64-dts-allwinner-h6-Enable-hdmi-sound-card-on-boards.patch'       # Allwinner H6 HDMI audio (by Furkan)
         '1017-arm64-dts-allwinner-add-OrangePi-3-LTS.patch'                        # Orange Pi 3 LTS (by Furkan)
-        '1018-arm64-dts-rockchip-add-rk3568-station-p2.patch'                      # Firefly Station P2 (by Furkan)
-        '1019-Add-support-for-the-Hardkernel-ODROID-M1-board.patch'                # Odroid M1; V3 From list: https://patchwork.kernel.org/project/linux-rockchip/list/?series=682120
+        '1018-Add-support-for-the-Hardkernel-ODROID-M1-board.patch'                # Odroid M1; V3 From list: https://patchwork.kernel.org/project/linux-rockchip/list/?series=682120
+        #'1019-arm64-dts-rockchip-add-rk3568-station-p2.patch'                      # Firefly Station P2 (by Furkan) (needs to be redone)
         #'1019-dt-bindings-rockchip-Add-Hardkernel-ODROID-M1-board.patch'           # Odroid M1; V1
         #'1020-arm64-dts-rockchip-Add-Hardkernel-ODROID-M1-board.patch'             # Odroid M1; V1
         '1020-arm64-dts-meson-radxa-zero-add-support-for-the-usb-t.patch'          # Radxa Zero (by Furkan)
@@ -87,8 +87,8 @@ md5sums=('5a7ea40f0ec23b0800e8b52cb44ed04c'
          'f666606de61576007a756e6e80e1f1fe'
          '717c673c7caa564fc06e76ff9a0eebaa'
          'e285b47405d8eab611ba17bcbf2f9cbf'
-         'aca8e5610b67e054176b6ff02c4830b0'
          'a0c5eef4fbb129f3ca7b569b220e6681'
+         'aca8e5610b67e054176b6ff02c4830b0'
          '9799998aa9b72fae2eb55e92d840dad5'
          '227466ec46ffce1684835c87640c46c2'
          '77200aa6b89276b9035f13c4bb422b98'
